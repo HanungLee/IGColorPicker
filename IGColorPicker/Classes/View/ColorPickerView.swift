@@ -134,7 +134,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
             }
             
             _indexOfSelectedColor = indexPath.item
-            print("didselect")
+
             colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
             colorPickerCell.checkbox.setCheckState((colorPickerCell.checkbox.checkState == .checked) ? .unchecked : .checked, animated: false)
             
@@ -189,7 +189,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self._selectColor(at: indexPath, animated: true)
+        self._selectColor(at: indexPath, animated: false)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -200,7 +200,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if selectionStyle == .check {
-            oldColorCell.checkbox.setCheckState(.unchecked, animated: true)
+            oldColorCell.checkbox.setCheckState(.unchecked, animated: false)
         }
         
         delegate?.colorPickerView?(self, didDeselectItemAt: indexPath)
