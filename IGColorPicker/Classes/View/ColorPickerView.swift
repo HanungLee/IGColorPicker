@@ -134,9 +134,9 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
             }
             
             _indexOfSelectedColor = indexPath.item
-            
+            print("didselect")
             colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
-            colorPickerCell.checkbox.setCheckState((colorPickerCell.checkbox.checkState == .checked) ? .unchecked : .checked, animated: animated)
+            colorPickerCell.checkbox.setCheckState((colorPickerCell.checkbox.checkState == .checked) ? .unchecked : .checked, animated: false)
             
         }
         
